@@ -6,13 +6,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Struts2でHelloWorld</title>
+        <title>Topページ</title>
     </head>
     <body>
-        <!-- 入力フォームはStruts2のタグを使用します -->
-        <s:form action="hello">
-            <s:textfield name="name" />
-            <s:submit value="HelloWorldページへ行く" />
-        </s:form>
+        <html:link href="#">問題と答えを確認する</html:link><br>
+        <html:link href="#">テストをする</html:link><br>
+        <html:link href="#">採点履歴を表示する</html:link>
     </body>
 </html>

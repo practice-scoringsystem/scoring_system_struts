@@ -3,7 +3,8 @@
 .settings/
 .metadata/
 Servers/
+*.class
 
 .DS_Store
 
-ConnectionDAO.java
+DBUtil.java
