@@ -9,7 +9,13 @@
         <title>Topページ</title>
     </head>
     <body>
-        <html:link href="#">問題と答えを確認する</html:link><br>
+    <%
+    	if(session.getAttribute("login_id") == null) {
+    		response.sendRedirect("login.jsp");
+    	}
+    %>
+    	<s:a action="logoutAction">ログアウト</s:a><br>
+        <s:a action="listAction">問題と答えを確認する</s:a><br>
         <html:link href="#">テストをする</html:link><br>
         <html:link href="#">採点履歴を表示する</html:link>
     </body>

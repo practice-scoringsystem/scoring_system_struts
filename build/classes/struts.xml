@@ -5,10 +5,37 @@
 <struts>
 	<constant name="struts.ui.theme" value="simple" />
     <package name="default" extends="struts-default">
+    	<interceptors>
+    		<interceptor class="interceptors.LoginInterceptor"
+    			name="loginInterceptor" />
+    		<interceptor-stack name="loginStack">
+    			<interceptor-ref name="loginInterceptor" />
+    			<interceptor-ref name="defaultStack" />
+    		</interceptor-stack>
+    	</interceptors>
+		<default-interceptor-ref name="loginStack" />
+
     	<!-- ログイン -->
         <action name="loginAction" class="action.LoginAction">
             <result name="success">top.jsp</result>
             <result name="input">login.jsp</result>
+        </action>
+
+		<!-- ログアウト -->
+        <action name="logoutAction" class="action.LogoutAction">
+            <result name="success" type="redirect">listAction</result>
+            <result name="input">login.jsp</result>
+        </action>
+
+        <!-- 一覧画面 -->
+        <action name="listAction" class="action.ListAction">
+            <result name="success">list.jsp</result>
+        </action>
+
+        <!-- 新規登録画面 -->
+        <action name="addAction" class="action.AddAction">
+            <result name="success" type="redirect">listAction</result>
+            <result name="error">register.jsp</result>
         </action>
     </package>
 </struts>
