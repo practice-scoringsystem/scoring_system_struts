@@ -4,7 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class AddConfirmAction extends ActionSupport {
 
-	String question;
+	private String question;
 
 	public String execute() {
 		return "success";

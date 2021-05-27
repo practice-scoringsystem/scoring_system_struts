@@ -11,8 +11,8 @@ import dao.QuestionsDAO;
 
 public class ListAction extends ActionSupport{
 
-	List<QuestionsBean> qlist;
-	List<CorrectAnswersBean> calist;
+	private List<QuestionsBean> qlist;
+	private List<CorrectAnswersBean> calist;
 
 	public void initializeQlist() {
 		qlist = QuestionsDAO.getAllQuestions();

@@ -9,14 +9,14 @@ import dao.LoginDAO;
 
 public class LoginAction extends ActionSupport {
 
-	String userId;
-	String password;
+	private String userId;
+	private String password;
 
 	public String execute() {
 		String statusCode = "";
 		boolean isUserValid = LoginDAO.isUserValid(new LoginInfo(userId, password));
-		ServletActionContext.getRequest().getSession().setAttribute("login_id", userId);
 		if (isUserValid) {
+			ServletActionContext.getRequest().getSession().setAttribute("login_id", userId);
 			statusCode = "success";
 		} else {
 			statusCode = "input";

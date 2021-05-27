@@ -3,7 +3,6 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,14 +16,18 @@ public class QuestionsDAO {
 		List<QuestionsBean> qlist = new ArrayList<QuestionsBean>();
 		try {
 			Connection conn = DBUtil.getConnection();
-			Statement st = conn.createStatement();
-			ResultSet rs = st.executeQuery("SELECT * FROM questions");
+			PreparedStatement ps = conn
+					.prepareStatement("SELECT * FROM questions");
+			ResultSet rs = ps.executeQuery();
+
 			while (rs.next()) {
 				QuestionsBean qb = new QuestionsBean(rs.getInt("id"), rs.getString("question"),
 						rs.getTimestamp("created_at"), rs.getTimestamp("updated_at"));
 				qlist.add(qb);
 			}
+
 			DBUtil.closeConnection(conn);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

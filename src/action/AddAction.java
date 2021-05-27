@@ -7,7 +7,7 @@ import dao.QuestionsDAO;
 
 public class AddAction extends ActionSupport{
 
-	String question;
+	private String question;
 
 	public String execute() {
 		String statusCode = "";
