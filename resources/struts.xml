@@ -62,5 +62,17 @@
             <result name="error">editConfirm.jsp</result>
         </action>
 
+        <!-- 削除確認 -->
+         <action name="confirmDeleteAction" class="action.ConfirmDeleteAction">
+            <result name="success">deleteConfirm.jsp</result>
+            <result name="error" type="redirect">listAction</result>
+        </action>
+
+        <!-- 削除 -->
+         <action name="deleteAction" class="action.DeleteAction">
+            <result name="success" type="redirect">listAction</result>
+            <result name="error">deleteConfirm.jsp</result>
+        </action>
+
     </package>
 </struts>

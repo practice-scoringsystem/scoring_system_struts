@@ -48,6 +48,13 @@
 						<button>編集</button>
 					</a>
 				</td>
+
+				<!-- 削除ボタン -->
+				<td>
+					<a href="confirmDeleteAction?id=<s:property value="#q.id" />">
+						<button>削除</button>
+					</a>
+				</td>
 			</tr>
 		</s:iterator>
 

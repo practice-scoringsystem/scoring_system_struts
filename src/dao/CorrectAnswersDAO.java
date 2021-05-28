@@ -90,4 +90,18 @@ public class CorrectAnswersDAO {
 
 	}
 
+	public static int deleteAnswer(int id) {
+		int status = 0;
+		try {
+			Connection conn = DBUtil.getConnection();
+			PreparedStatement ps = conn
+					.prepareStatement("DELETE FROM correct_answers where questions_id = ?");
+			ps.setInt(1, id);
+			status = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return status;
+	}
+
 }

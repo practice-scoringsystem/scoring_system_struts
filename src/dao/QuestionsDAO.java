@@ -77,7 +77,8 @@ public class QuestionsDAO {
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				qb = new QuestionsBean(rs.getInt("id"), rs.getString("question"), rs.getTimestamp("created_at"), rs.getTimestamp("updated_at"));
+				qb = new QuestionsBean(rs.getInt("id"), rs.getString("question"), rs.getTimestamp("created_at"),
+						rs.getTimestamp("updated_at"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -90,7 +91,8 @@ public class QuestionsDAO {
 		try {
 			Connection conn = DBUtil.getConnection();
 			PreparedStatement ps = conn
-					.prepareStatement("UPDATE questions SET question = ?, updated_at = current_timestamp() WHERE id = ?");
+					.prepareStatement(
+							"UPDATE questions SET question = ?, updated_at = current_timestamp() WHERE id = ?");
 			ps.setString(1, qb.getQuestion());
 			ps.setInt(2, qb.getId());
 			status = ps.executeUpdate();
@@ -98,6 +100,19 @@ public class QuestionsDAO {
 			e.printStackTrace();
 		}
 		return status;
+	}
 
+	public static int deleteQuestion(int id) {
+		int status = 0;
+		try {
+			Connection conn = DBUtil.getConnection();
+			PreparedStatement ps = conn
+					.prepareStatement("DELETE FROM questions where id = ?");
+			ps.setInt(1, id);
+			status = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return status;
 	}
 }
