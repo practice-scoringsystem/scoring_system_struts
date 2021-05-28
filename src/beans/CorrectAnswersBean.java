@@ -2,6 +2,7 @@ package beans;
 
 import java.sql.Timestamp;
 
+//pojo
 public class CorrectAnswersBean {
 
 	private int id;
@@ -24,12 +25,21 @@ public class CorrectAnswersBean {
 		this.answer = answer;
 	}
 
+	public CorrectAnswersBean (String answer) {
+		this.answer = answer;
+	}
+
+	public CorrectAnswersBean(int id, String answer) {
+		this.id = id;
+		this.answer = answer;
+	}
+
 	public int getId() {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getAnswerId() {
+		return id;
 	}
 
 	public int getQuestionsId() {

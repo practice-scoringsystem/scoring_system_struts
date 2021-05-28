@@ -28,6 +28,12 @@ public class QuestionsBean {
 		this.question = question;
 	}
 
+	public QuestionsBean(int id, String question) {
+		super();
+		this.id = id;
+		this.question = question;
+	}
+
 	public int getId() {
 		return id;
 	}

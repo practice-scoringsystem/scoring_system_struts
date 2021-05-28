@@ -24,6 +24,8 @@
 				<th>問題</th>
 				<th>答え1</th>
 				<th>答え2</th>
+				<th></th>
+				<th></th>
 			</tr>
 		</thead>
 
@@ -39,6 +41,13 @@
 						<td><s:property value="#ca.answer" /></td>
 					</s:if>
 				</s:iterator>
+
+				<!-- 編集ボタン -->
+				<td>
+					<a href="editAction?id=<s:property value="#q.id" />">
+						<button>編集</button>
+					</a>
+				</td>
 			</tr>
 		</s:iterator>
 

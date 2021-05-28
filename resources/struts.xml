@@ -32,10 +32,35 @@
             <result name="success">list.jsp</result>
         </action>
 
-        <!-- 新規登録画面 -->
+        <!-- 新規登録確認画面 -->
+        <action name="confirmAddAction" class="action.ConfirmAddAction">
+            <result name="success">registerConfirm.jsp</result>
+            <result name="error">register.jsp</result>
+        </action>
+
+        <!-- 新規登録処理 -->
         <action name="addAction" class="action.AddAction">
             <result name="success" type="redirect">listAction</result>
             <result name="error">register.jsp</result>
         </action>
+
+        <!-- 編集画面表示 -->
+        <action name="editAction" class="action.EditAction">
+            <result name="success">edit.jsp</result>
+            <result name="error" type="redirect">listAction</result>
+        </action>
+
+        <!-- 編集確認画面 -->
+        <action name="confirmUpdateAction" class="action.ConfirmUpdateAction">
+            <result name="success">editConfirm.jsp</result>
+            <result name="error">edit.jsp</result>
+        </action>
+
+        <!-- 更新処理 -->
+         <action name="updateAction" class="action.UpdateAction">
+            <result name="success" type="redirect">listAction</result>
+            <result name="error">editConfirm.jsp</result>
+        </action>
+
     </package>
 </struts>
