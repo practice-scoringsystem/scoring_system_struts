@@ -37,6 +37,7 @@ public class CorrectAnswersDAO {
 
 	public static int addAnswer(CorrectAnswersBean ab) {
 		int status = 0;
+
 		try {
 			Connection conn = DBUtil.getConnection();
 			int latestQuestionsId = QuestionsDAO.getLatestQuestionId();
@@ -53,8 +54,11 @@ public class CorrectAnswersDAO {
 
 	}
 
-	public static CorrectAnswersBean getAnswerById(int id) {
+	public static List<CorrectAnswersBean> getAnswerById(int id) {
+
+		List<CorrectAnswersBean> calist = new ArrayList<CorrectAnswersBean>();
 		CorrectAnswersBean cb = null;
+
 		try {
 			Connection conn = DBUtil.getConnection();
 			PreparedStatement ps = conn
@@ -67,11 +71,12 @@ public class CorrectAnswersDAO {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				cb = new CorrectAnswersBean(rs.getInt("id"), rs.getString("answer"));
+				calist.add(cb);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return cb;
+		return calist;
 	}
 
 	public static int updateAnswer(CorrectAnswersBean cb) {

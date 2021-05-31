@@ -4,19 +4,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>問題・答え一覧</title>
 </head>
 <body>
-
-	<a href="register.jsp">
-		<button>新規登録</button>
-	</a>
-
+	<%@ include file="header.jsp" %>
 	<div align="center">
+		<a href="register.jsp">
+			<button>新規登録</button>
+		</a>
 		<h2>一覧</h2>
 	</div>
-
 	<table>
 		<thead>
 			<tr>
@@ -57,8 +55,6 @@
 				</td>
 			</tr>
 		</s:iterator>
-
 	</table>
-
 </body>
 </html>

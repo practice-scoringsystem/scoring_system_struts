@@ -8,6 +8,7 @@
 <title>編集画面</title>
 </head>
 <body>
+	<%@ include file="header.jsp" %>
 	<div align="center">
 		<h2>編集画面</h2>
 		<s:form action="confirmUpdateAction">
@@ -17,12 +18,15 @@
 				<s:textfield name="question" />
 			</p>
 
-			<s:hidden name="answerId" readonly="true" />
-			<p>
-				答え:
-				<s:textfield name="answer" />
-			</p>
-			<s:submit value="更新する" />
+			<s:iterator status="st" value="calist" var="ca">
+
+				<s:textfield name="answerId" value="%{#ca.id}" />
+				<td>答え:
+					<s:textfield name="answer" value="%{#ca.answer}" />
+				</td><br>
+			</s:iterator>
+
+			<s:submit value="確認する" />
 		</s:form>
 	</div>
 </body>

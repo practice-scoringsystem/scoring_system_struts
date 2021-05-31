@@ -9,11 +9,6 @@
         <title>Topページ</title>
     </head>
     <body>
-    <%
-    	if(session.getAttribute("login_id") == null) {
-    		response.sendRedirect("login.jsp");
-    	}
-    %>
     	<s:a action="logoutAction">ログアウト</s:a><br>
         <s:a action="listAction">問題と答えを確認する</s:a><br>
         <html:link href="#">テストをする</html:link><br>

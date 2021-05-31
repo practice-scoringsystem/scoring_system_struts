@@ -6,8 +6,8 @@ public class ConfirmUpdateAction extends ActionSupport {
 
 	private int id;
 	private String question;
-	private int answerId;
-	private String answer;
+	private int[] answerId;
+	private String[] answer;
 
 	public String execute() {
 		return "success";
@@ -29,19 +29,19 @@ public class ConfirmUpdateAction extends ActionSupport {
 		this.question = question;
 	}
 
-	public int getAnswerId() {
+	public int[] getAnswerId() {
 		return answerId;
 	}
 
-	public void setAnswerId(int answerId) {
+	public void setAnswerId(int[] answerId) {
 		this.answerId = answerId;
 	}
 
-	public String getAnswer() {
+	public String[] getAnswer() {
 		return answer;
 	}
 
-	public void setAnswer(String answer) {
+	public void setAnswer(String[] answer) {
 		this.answer = answer;
 	}
 

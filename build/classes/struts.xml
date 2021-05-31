@@ -74,5 +74,11 @@
             <result name="error">deleteConfirm.jsp</result>
         </action>
 
+         <!-- テスト一覧 -->
+        <!--  <action name="testListAction" class="action.TestListAction">
+            <result name="success">listAction</result>
+            <result name="error">deleteConfirm.jsp</result>
+        </action> -->
+
     </package>
 </struts>

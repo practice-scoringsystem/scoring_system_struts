@@ -5,7 +5,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ConfirmAddAction extends ActionSupport{
 
 	private String question;
-	private String answer;
+	private String[] answers;
 
 	public String execute() {
 		return "success";
@@ -19,12 +19,12 @@ public class ConfirmAddAction extends ActionSupport{
 		this.question = question;
 	}
 
-	public String getAnswer() {
-		return answer;
+	public String[] getAnswers() {
+		return answers;
 	}
 
-	public void setAnswer(String answer) {
-		this.answer = answer;
+	public void setAnswers(String[] answers) {
+		this.answers = answers;
 	}
 
 }

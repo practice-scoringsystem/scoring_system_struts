@@ -8,6 +8,7 @@
 <title>新規登録</title>
 </head>
 <body>
+	<%@ include file="header.jsp" %>
 	<div align="center">
 		<h2>新規登録</h2>
 		<s:form action="confirmAddAction">
@@ -17,7 +18,12 @@
 			</p>
 			<p>
 				答え:
-				<s:textfield name="answer" />
+				<s:textfield name="answers" />
+			</p>
+
+			<p>
+				答え:
+				<s:textfield name="answers" />
 			</p>
 			<s:submit value="確認する" />
 		</s:form>

@@ -11,8 +11,8 @@ public class UpdateAction extends ActionSupport {
 
 	private int id;
 	private String question;
-	private int answerId;
-	private String answer;
+	private int[] answerId;
+	private String[] answer;
 
 	public String execute() {
 		String statusCode = "";
@@ -20,9 +20,18 @@ public class UpdateAction extends ActionSupport {
 		QuestionsBean qb = new QuestionsBean(id, question);
 		int recordUpdated = QuestionsDAO.updateQuestion(qb);
 
-		CorrectAnswersBean cb = new CorrectAnswersBean(answerId, answer);
-		int recordAnsUpdated = CorrectAnswersDAO.updateAnswer(cb);
-		//ここまではきてるけど更新件数は0件になる
+		int answerIds[];
+		answerIds = new int[answerId.length];
+		for (int i = 0; i < answerId.length; i++) {
+			answerIds[i] = answerId[i];
+		}
+
+		int recordAnsUpdated = 0;
+		for (int i = 0; i < answerIds.length; i++) {
+			CorrectAnswersBean cb = new CorrectAnswersBean(answerId[i]);
+			cb.setAnswer(answer[i]);
+			recordAnsUpdated = CorrectAnswersDAO.updateAnswer(cb);
+		}
 
 		if (recordUpdated != 0 && recordAnsUpdated != 0) {
 			statusCode = "success";
@@ -48,21 +57,20 @@ public class UpdateAction extends ActionSupport {
 		this.question = question;
 	}
 
-	public int getAnswerId() {
+	public int[] getAnswerId() {
 		return answerId;
 	}
 
-	public void setAnswerId(int answerId) {
+	public void setAnswerId(int[] answerId) {
 		this.answerId = answerId;
 	}
 
-	public String getAnswer() {
+	public String[] getAnswer() {
 		return answer;
 	}
 
-	public void setAnswer(String answer) {
+	public void setAnswer(String[] answer) {
 		this.answer = answer;
 	}
-
 
 }

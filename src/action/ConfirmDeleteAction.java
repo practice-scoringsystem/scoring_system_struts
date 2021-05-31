@@ -1,5 +1,7 @@
 package action;
 
+import java.util.List;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import beans.CorrectAnswersBean;
@@ -11,17 +13,18 @@ public class ConfirmDeleteAction extends ActionSupport{
 
 	private int id;
 	private String question;
-	private int answerId;
-	private String answer;
+	private List<CorrectAnswersBean> calist;
+
+	public void initializeCAlist() {
+		calist = CorrectAnswersDAO.getAnswerById(id);
+	}
 
 	public String execute() {
 		QuestionsBean qb = QuestionsDAO.getQuestionById(id);
 		id = qb.getId();
 		question = qb.getQuestion();
 
-		CorrectAnswersBean cb = CorrectAnswersDAO.getAnswerById(id);
-		answerId = cb.getId();
-		answer = cb.getAnswer();
+		initializeCAlist();
 
 		return "success";
 	}
@@ -42,20 +45,12 @@ public class ConfirmDeleteAction extends ActionSupport{
 		this.question = question;
 	}
 
-	public int getAnswerId() {
-		return answerId;
+	public List<CorrectAnswersBean> getCalist() {
+		return calist;
 	}
 
-	public void setAnswerId(int answerId) {
-		this.answerId = answerId;
-	}
-
-	public String getAnswer() {
-		return answer;
-	}
-
-	public void setAnswer(String answer) {
-		this.answer = answer;
+	public void setCalist(List<CorrectAnswersBean> calist) {
+		this.calist = calist;
 	}
 
 }
