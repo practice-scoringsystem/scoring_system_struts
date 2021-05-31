@@ -5,26 +5,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>新規登録</title>
+<title>編集画面</title>
 </head>
 <body>
 	<%@ include file="header.jsp" %>
 	<div align="center">
-		<h2>新規登録</h2>
-		<s:form action="confirmAddAction">
+		<h2>編集画面</h2>
+		<s:form action="confirmUpdateAction">
+			<s:hidden name="id" readonly="true" />
 			<p>
 				問題:
 				<s:textfield name="question" />
 			</p>
-			<p>
-				答え:
-				<s:textfield name="answers" />
-			</p>
 
-			<p>
-				答え:
-				<s:textfield name="answers" />
-			</p>
+			<s:iterator status="st" value="calist" var="ca">
+
+				<s:textfield name="answerId" value="%{#ca.id}" />
+				<td>答え:
+					<s:textfield name="answer" value="%{#ca.answer}" />
+				</td><br>
+			</s:iterator>
+
 			<s:submit value="確認する" />
 		</s:form>
 	</div>

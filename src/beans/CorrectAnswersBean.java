@@ -2,12 +2,12 @@ package beans;
 
 import java.sql.Timestamp;
 
+//pojo
 public class CorrectAnswersBean {
 
 	private int id;
 	private int questions_id;
 	private String answer;
-	private int answers_id;
 	private Timestamp created_at;
 	private Timestamp updated_at;
 
@@ -24,12 +24,21 @@ public class CorrectAnswersBean {
 		this.answer = answer;
 	}
 
+	public CorrectAnswersBean(int id, String answer) {
+		this.id = id;
+		this.answer = answer;
+	}
+
+	public CorrectAnswersBean(int id) {
+		this.id = id;
+	}
+
 	public int getId() {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getAnswerId() {
+		return id;
 	}
 
 	public int getQuestionsId() {
@@ -46,14 +55,6 @@ public class CorrectAnswersBean {
 
 	public void setAnswer(String answer) {
 		this.answer = answer;
-	}
-
-	public int getAnswersId() {
-		return answers_id;
-	}
-
-	public void setAnswersId(int answers_id) {
-		this.answers_id = answers_id;
 	}
 
 	public Timestamp getCreatedAt() {
