@@ -62,7 +62,7 @@ public class CorrectAnswersDAO {
 		try {
 			Connection conn = DBUtil.getConnection();
 			PreparedStatement ps = conn
-					.prepareStatement("SELECT ca.id, ca.answer "
+					.prepareStatement("SELECT ca.id, ca.answer, ca.questions_id "
 							+ "FROM questions AS q "
 							+ "INNER JOIN correct_answers AS ca "
 							+ "ON q.id = ca.questions_id "
@@ -70,7 +70,7 @@ public class CorrectAnswersDAO {
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				cb = new CorrectAnswersBean(rs.getInt("id"), rs.getString("answer"));
+				cb = new CorrectAnswersBean(rs.getInt("id"), rs.getInt("questions_id"), rs.getString("answer"));
 				calist.add(cb);
 			}
 		} catch (Exception e) {

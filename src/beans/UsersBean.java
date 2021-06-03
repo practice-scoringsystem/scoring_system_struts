@@ -16,6 +16,11 @@ public class UsersBean {
 	/**
 	 * コンストラクタ
 	 */
+
+	public UsersBean() {
+
+	}
+
 	public UsersBean(int id, String name, String password) {
 		this.id = id;
 		this.name = name;
@@ -29,9 +34,9 @@ public class UsersBean {
 		this.admin_flag = admin_flag;
 	}
 
-	/** 引数無しのコンストラクタ **/
-	public UsersBean() {
-
+	public UsersBean(int id, String name) {
+		this.id = id;
+		this.name = name;
 	}
 
 	public int getId() {

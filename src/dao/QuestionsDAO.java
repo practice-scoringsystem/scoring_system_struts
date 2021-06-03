@@ -35,6 +35,31 @@ public class QuestionsDAO {
 
 	}
 
+	//	ランダム取得
+	public static List<QuestionsBean> getRandQuestions() {
+
+		List<QuestionsBean> qlist = new ArrayList<QuestionsBean>();
+		try {
+			Connection conn = DBUtil.getConnection();
+			PreparedStatement ps = conn
+					.prepareStatement("SELECT * FROM questions ORDER BY RAND()");
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				QuestionsBean qb = new QuestionsBean(rs.getInt("id"), rs.getString("question"),
+						rs.getTimestamp("created_at"), rs.getTimestamp("updated_at"));
+				qlist.add(qb);
+			}
+
+			DBUtil.closeConnection(conn);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return qlist;
+
+	}
+
 	public static int addQuestion(QuestionsBean qb) {
 		int status = 0;
 		try {

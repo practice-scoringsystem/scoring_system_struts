@@ -11,6 +11,9 @@
 	<%@ include file="header.jsp" %>
 	<div align="center">
 		<h2>新規登録</h2>
+
+		<s:actionerror />
+
 		<s:form action="confirmAddAction">
 			<p>
 				問題:

@@ -35,7 +35,7 @@
         <!-- 新規登録確認画面 -->
         <action name="confirmAddAction" class="action.ConfirmAddAction">
             <result name="success">registerConfirm.jsp</result>
-            <result name="error">register.jsp</result>
+            <result name="input">register.jsp</result>
         </action>
 
         <!-- 新規登録処理 -->
@@ -53,7 +53,7 @@
         <!-- 編集確認画面 -->
         <action name="confirmUpdateAction" class="action.ConfirmUpdateAction">
             <result name="success">editConfirm.jsp</result>
-            <result name="error">edit.jsp</result>
+            <result name="input">edit.jsp</result>
         </action>
 
         <!-- 更新処理 -->
@@ -75,10 +75,16 @@
         </action>
 
          <!-- テスト一覧 -->
-        <!--  <action name="testListAction" class="action.TestListAction">
-            <result name="success">listAction</result>
-            <result name="error">deleteConfirm.jsp</result>
-        </action> -->
+        <action name="testListAction" class="action.TestListAction">
+            <result name="success">testList.jsp</result>
+            <result name="error">top.jsp</result>
+        </action>
+
+         <!-- テスト採点 -->
+        <action name="testResultAction" class="action.TestResultAction">
+            <result name="success">testResult.jsp</result>
+            <result name="error" type="redirect">testListAction</result>
+        </action>
 
     </package>
 </struts>

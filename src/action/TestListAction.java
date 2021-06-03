@@ -10,7 +10,7 @@ public class TestListAction {
 	private List<QuestionsBean> qlist;
 
 	public void initializeQlist() {
-		qlist = QuestionsDAO.getAllQuestions();
+		qlist = QuestionsDAO.getRandQuestions();
 	}
 
 	public String execute() {

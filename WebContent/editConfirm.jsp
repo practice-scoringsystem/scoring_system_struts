@@ -12,7 +12,7 @@
 	<div align="center">
 		<h2>編集確認画面</h2>
 		<s:form action="updateAction">
-			<s:hidden name="id" readonly="true" />
+			<s:hidden name="id" />
 			<p>
 				問題:
 				<s:textfield name="question" readonly="true" />
@@ -23,7 +23,7 @@
 			</s:iterator>
 			<s:iterator value="answer" var="ans">
 				<td>答え:
-					<s:textfield name="answer" value="%{#ans}" />
+					<s:textfield name="answer" value="%{#ans}" readonly="true" />
 				</td><br>
 			</s:iterator>
 

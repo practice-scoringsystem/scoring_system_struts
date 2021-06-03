@@ -11,7 +11,6 @@
 <%@ include file="header.jsp" %>
 	<div align="center">
 		<h2>テスト一覧</h2>
-	</div>
 	<table>
 		<thead>
 			<tr>
@@ -21,13 +20,17 @@
 			</tr>
 		</thead>
 
-		<s:iterator value="qlist" var="q">
-			<!-- 問題 -->
-			<tr>
-				<td><s:property value="#q.id" /></td>
-				<td><s:property value="#q.question" /></td>
-			</tr>
-		</s:iterator>
+		<s:form action="testResultAction">
+			<s:iterator value="qlist" var="q">
+				<tr>
+					<td><s:textfield name="questionIds" value="%{#q.id}" readonly="true" /></td>
+					<td><s:textfield name="question" value="%{#q.question}" readonly="true" /></td>
+					<td><s:textfield name="answers" /></td>
+				</tr>
+			</s:iterator>
+			<td><s:submit value="採点する" /></td>
+		</s:form>
 	</table>
+	</div>
 </body>
 </html>
